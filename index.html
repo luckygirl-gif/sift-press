@@ -53,7 +53,7 @@ section.screen{min-height:calc(100vh - 70px);position:relative}
 #home h1{margin:0;font-weight:700;font-size:clamp(96px,22vw,260px);line-height:.9;letter-spacing:-.04em}
 #home h1 i{font-family:Georgia,serif;font-weight:400;font-size:.46em;display:block;margin-top:-.06em;letter-spacing:0}
 .tag{margin:26px 0 8px;font-family:"Courier New",monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.lead{margin:0 0 30px;font-size:18px}
+.lead{margin:0 0 30px;font-family:"Courier New",monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .cta{display:inline-block;border:1px solid var(--ink);padding:12px 26px;text-decoration:none;font-family:"Courier New",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}
 .cta:hover,.cta:focus-visible{background:var(--ink);color:var(--bg)}
 .foot{position:absolute;bottom:26px;left:32px;right:32px;display:flex;justify-content:space-between;font-family:"Courier New",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -61,7 +61,7 @@ section.screen{min-height:calc(100vh - 70px);position:relative}
 /* books */
 #books{padding:50px 32px 40px}
 .head{text-align:center}
-.head .tag{margin:0 0 6px}
+.head .tag{margin:0 0 22px}
 .head h2{margin:0 0 26px;font-weight:400;font-size:22px}
 .filters{display:flex;justify-content:center;gap:22px;margin-bottom:10px}
 .filters button{background:none;border:0;border-bottom:1px solid transparent;padding:0 0 3px;font-family:"Courier New",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
@@ -76,8 +76,9 @@ section.screen{min-height:calc(100vh - 70px);position:relative}
 .frame{display:block;width:100%;padding:4.2px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 28px rgba(0,0,0,.12);transition:transform .25s,box-shadow .25s;cursor:pointer;text-align:left}
 .tile:hover .frame{transform:scale(1.04);box-shadow:0 16px 36px rgba(0,0,0,.18)}
 .frame img{display:block;width:100%;height:auto}
-.cap{margin:12px 0 0;font-family:"Courier New",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center}
-.cap b{display:block;color:var(--ink);font-weight:400}
+.cap{margin:12px 0 0;font-family:"Courier New",monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:center}
+.cap b{display:block;color:var(--ink);font-weight:400;margin-bottom:4px}
+.cap a{color:inherit;text-decoration:underline}
 @keyframes card-drift{0%,100%{transform:translate3d(0,0,0) rotate(-.6deg)}50%{transform:translate3d(5px,-26px,0) rotate(.75deg)}}
 .tile,.brand-card{animation-name:card-drift,enter}
 @keyframes enter{from{opacity:0;scale:.94;translate:0 14px}to{opacity:1;scale:1;translate:0 0}}
@@ -158,7 +159,6 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
 <section id="books" class="screen" aria-label="Books" hidden>
   <div class="head">
     <p class="tag">The book collection</p>
-    <h2>Published &amp; forthcoming editions</h2>
     <div class="filters" role="group" aria-label="Filter books">
       <button type="button" data-f="all" aria-pressed="true">All [2]</button>
       <button type="button" data-f="published" aria-pressed="false">Published [1]</button>
@@ -171,14 +171,14 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
       <button class="frame" type="button" data-book="claude" aria-label="AI는 기세다! 클로드편 상세 보기">
         <img src="assets/claude.png" width="992" height="1586" alt="AI는 기세다! 클로드편 표지">
       </button>
-      <figcaption class="cap"><b lang="ko">001 · AI는 기세다! 클로드편</b>Published</figcaption>
+      <figcaption class="cap"><b lang="ko">001 · AI는 기세다 - 클로드편</b>Korean ebook, 66 pages<br>Published Nov. 2, 2026<br><a href="https://sifticapress.gumroad.com/l/giseda-claude" target="_blank" rel="noopener noreferrer">Buy / 구매</a></figcaption>
     </figure>
     <div class="center-mark" aria-hidden="true"><strong>sift</strong><i>books</i></div>
     <figure class="tile t2" data-status="upcoming">
       <button class="frame" type="button" data-book="chatgpt" aria-label="AI는 기세다! ChatGPT편 상세 보기">
         <img src="assets/chatgpt.jpg" width="1600" height="2560" alt="AI는 기세다! ChatGPT편 표지">
       </button>
-      <figcaption class="cap"><b lang="ko">002 · AI는 기세다! ChatGPT편</b>Upcoming</figcaption>
+      <figcaption class="cap"><b lang="ko">002 · AI는 기세다 - ChatGPT편</b>Forthcoming</figcaption>
     </figure>
   </div>
 
@@ -186,7 +186,6 @@ dialog::backdrop{background:rgba(0,0,0,.5)}
     <h2>ABOUT SIFT PRESS</h2>
     <p>Sift Press is an independent publishing imprint based in Orange County, California. We publish practical Korean-language guides for Korean families living in the United States, and books written by our students.</p>
     <p lang="ko">Sift Press는 미국 캘리포니아 오렌지카운티에 있는 독립 출판 브랜드입니다. 미국에 사는 한국 가족을 위한 한국어 실용서와 학생들이 쓴 책을 냅니다.</p>
-    <p class="contact">Books / 책: 001 · AI는 기세다 - 클로드편 (Korean ebook, 66 pages, published November 2, 2026) · <a href="https://sifticapress.gumroad.com/l/giseda-claude" target="_blank" rel="noopener noreferrer">Buy / 구매</a><br>002 · AI는 기세다 - ChatGPT편 (forthcoming)</p>
     <p class="contact">Contact / 문의: <a href="mailto:icaatoc@gmail.com">icaatoc@gmail.com</a></p>
     <p class="contact"><a class="ig" href="https://www.instagram.com/ica.oc_official/" target="_blank" rel="noopener noreferrer"><img src="assets/instagram-icon.svg" alt="" width="16" height="16">ICA Instagram</a></p>
     <p class="contact">Claude is a trademark of Anthropic. Our books are independent guides and are not affiliated with Anthropic or OpenAI.</p>
